@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import { getAuth, updateProfile } from "firebase/auth";
+import app from "../Firebase/Firebase.config";
 
-
+const auth = getAuth(app)
 const Register = () => {
-
+    const {createUser} = useContext(AuthContext)
     const handleRegister = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -11,7 +15,23 @@ const Register = () => {
         const photoUrl = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name,email,password,photoUrl)
+        createUser(email,password)
+        .then((result) => {
+          console.log(result.user)
+          updateUserData(name,photoUrl)
+        })
+        .catch(error => console.log(error.message))
+       
+    }
+
+    const updateUserData = (name,photoUrl) => {
+      updateProfile(auth.currentUser, {
+        displayName: name, photoURL: photoUrl
+      }).then(() => {
+        console.log("updated user successfully")
+      }).catch((error) => {
+        console.log(error.message)
+      });
     }
     return (
         <div className="hero min-h-[60vh] ">
