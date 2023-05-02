@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import ChefDetailsBanner from "./ChefDetailsBanner";
+import ChefRecipes from "./ChefRecipes";
 
 const ChefDetails = () => {
     const data = useLoaderData();
@@ -7,6 +8,7 @@ const ChefDetails = () => {
     return (
         <div>
             <ChefDetailsBanner data={data}/>
+             <ChefRecipes data={data}/>
         </div>
     );
 };
