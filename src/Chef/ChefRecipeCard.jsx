@@ -3,11 +3,28 @@
 
 import { FaRegHeart, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import Toast from "../Toast/Toast";
+import { useState } from "react";
 
 const ChefRecipeCard = ({ recipe }) => {
-   
+    const [favouite,setFavourite] = useState(false)
     const { title, ingredients, cookingMethod, rating } = recipe;
     
+    const handleFavourite = () => {
+        toast.success('Added to favorite', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+            setFavourite(true)
+    }
    
     return (
         <div className="card relative w-full h-full bg-base-100 shadow-xl">
@@ -26,7 +43,7 @@ const ChefRecipeCard = ({ recipe }) => {
                     </div>
                 </div>
                 <div>
-                    <p className="font-bold text-md mt-3">Ingrdiens :</p>
+                    <p className="font-bold text-md">Ingrdiens :</p>
                 </div>
                 {ingredients.map((ingredient) => {
                     return (
@@ -42,8 +59,8 @@ const ChefRecipeCard = ({ recipe }) => {
                             {cookingMethod.slice(0 ,140)}...</small>
 
                 </div>
-              <span className="mr-2 cursor-pointer text-xl" title="favouite"><FaRegHeart /></span>    
-                 
+              <button  onClick={handleFavourite} disabled={favouite} className={` disabled:bg-opacity-60 mr-2 flex items-center gap-2 px-6 rounded-md py-1 bg-warning cursor-pointer text-sm absolute bottom-2`} title="favouite"> <span><FaRegHeart/></span> Favorite</button>    
+                 <Toast/>
             </div>
         </div>
     );
