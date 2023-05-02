@@ -9,7 +9,7 @@ const Banner = () => {
                     <button className="btn btn-warning font-bold text-slate-950">Get Started</button>
                 </div>
                 <div className="text-start">
-                    <img className="rounded-xl" src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60" alt="" />
+                    <img className="rounded-xl" loading="lazy" src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60" alt="" />
                 </div>
             </div>
         </div>

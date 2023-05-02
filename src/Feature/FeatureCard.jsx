@@ -6,7 +6,7 @@ const FeatureCard = ({ recipe }) => {
   const { name, recipePhoto, description, likes, ratings } = recipe;
   return (
     <div className="card card-compact w-full h-full bg-base-100 shadow-xl">
-      <figure><img src={recipePhoto} className="h-[300px] w-full object-cover" alt="Shoes" /></figure>
+      <figure><img src={recipePhoto} loading="lazy" className="h-[300px] w-full object-cover" alt="Shoes" /></figure>
       <div className="card-body">
         <h2 className="card-title text-2xl font-serif">{name}</h2>
         <p>{description}</p>

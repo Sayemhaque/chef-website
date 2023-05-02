@@ -2,7 +2,7 @@
 const Newsletter = () => {
   return (
     <section className="py-8">
-      <h3 className="uppercase font-bold font-serif text-4xl  text-center font-serif">newsletter</h3>
+      <h3 className="uppercase font-bold text-4xl  text-center font-serif">newsletter</h3>
       <div className="hero min-h-[300px] mt-8" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9vZHxlbnwwfDB8MHx8&auto=format&fit=crop&w=400&q=60")`, backgroundAttachment: "fixed", backgroundSize: "cover" }}>
         <div className="hero-overlay h-full bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
