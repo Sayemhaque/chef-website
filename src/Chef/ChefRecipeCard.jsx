@@ -27,21 +27,10 @@ const ChefRecipeCard = ({ recipe }) => {
     }
    
     return (
-        <div className="card relative w-full h-full bg-base-100 shadow-xl">
+        <div className="card relative w-full h-full bg-base-100 border border-gray-400">
             <div className="card-body">
                 <h2 className="text-3xl">{title}</h2>
-                <div>
-                    <div className="inline-flex items-center gap-2">
-                        <p className="py-1  text-stone-800 font-semibold">{rating}</p>
-                        <Rating
-                            placeholderRating={rating}
-                            readonly
-                            emptySymbol={<FaRegStar className="text-gray-800" />}
-                            placeholderSymbol={<FaStar className="text-amber-500" />}
-                            fullSymbol={<FaStar />}
-                        />
-                    </div>
-                </div>
+                   
                 <div>
                     <p className="font-bold text-md">Ingrdiens :</p>
                 </div>
@@ -59,6 +48,16 @@ const ChefRecipeCard = ({ recipe }) => {
                             {cookingMethod.slice(0 ,140)}...</small>
 
                 </div>
+                <div className="inline-flex items-center gap-2">
+                       <div> <p className="py-1  text-stone-800 font-semibold">{rating}</p></div>
+                        <Rating
+                            placeholderRating={rating}
+                            readonly
+                            emptySymbol={<FaRegStar className="text-gray-800" />}
+                            placeholderSymbol={<FaStar className="text-amber-500" />}
+                            fullSymbol={<FaStar />}
+                        />
+                    </div>
               <button  onClick={handleFavourite} disabled={favouite} className={` disabled:bg-opacity-60 mr-2 flex items-center gap-2 px-6 rounded-md py-1 bg-warning cursor-pointer text-sm absolute bottom-2`} title="favouite"> <span><FaRegHeart/></span> Favorite</button>    
                  <Toast/>
             </div>

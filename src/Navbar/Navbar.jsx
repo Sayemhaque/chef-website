@@ -18,10 +18,10 @@ const Navbar = () => {
           <h1 className="btn btn-ghost normal-case text-xl md:text-3xl font-bold font-serif">Sapori Italiani</h1>
         </div>
         <div className="navbar-end hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 font-bold">
+          <ul className="flex gap-6 items-center px-1 font-bold">
           <li><Link to="/">Home</Link></li>
           <li>  <Link to="/">Blog</Link></li>
-         <li>  <Link to="/">Login</Link></li>
+         <li>  <Link to="/login">Login</Link></li>
           </ul>
         </div>
       </div>
