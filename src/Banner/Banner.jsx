@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Banner = () => {
+    const {name} = useContext(AuthContext)
+    console.log(name)
     return (
         <div className="bg-gray-900 py-12 md:py-0 px-5 lg:px-0" >
             <div className="flex justify-between items-center flex-col md:flex-row gap-10 text-start  text-neutral-content min-h-screen md:max-w-[1200px] mx-auto lg:px-24">
