@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 
+
+
 const ChefDetailsBanner = ({data}) => {
     const {chefPicture,chefName,bio,likes,recipes,experience} = data;
     return (
@@ -12,7 +14,6 @@ const ChefDetailsBanner = ({data}) => {
                     <p className="py-1 text-gray-300 font-semibold">Likes : {likes}</p>
                     <p className="py-1 text-gray-300 font-semibold">Total Recipes: {recipes.length}</p>
                     <p className="py-1 text-gray-300 font-semibold mb-3">Experience: {experience}</p>
-                    <button className="btn btn-primary">Favourite</button>
                 </div>
             </div>
         </div>
