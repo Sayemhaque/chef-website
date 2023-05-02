@@ -6,6 +6,7 @@ const ChefDetails = () => {
     return (
         <div>
             <h1>{data.chefName}</h1>
+            <img src={data.chefPicture} alt="" />
         </div>
     );
 };
