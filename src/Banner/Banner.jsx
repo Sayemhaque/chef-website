@@ -1,8 +1,8 @@
 
 const Banner = () => {
     return (
-        <div className="hero min-h-screen bg-gray-900 py-12 md:py-0" >
-        <div className="hero-content flex justify-between flex-col md:flex-row gap-10 text-start  text-neutral-content ">
+        <div className="bg-gray-900 py-12 md:py-0" >
+        <div className="flex justify-between items-center flex-col md:flex-row gap-10 text-start  text-neutral-content min-h-screen md:max-w-[1200px] mx-auto lg:px-24">
           <div className="max-w-md">
             <h1 className="mb-5 text-3xl text-gray-200  md:text-4xl lg:text-4xl uppercase font-bold ">Embark on a Culinary Journey Through <span className="text-amber-400">Italy</span></h1>
             <p className="mb-5 text-gray-400 font-bold">Sapori Italiani is your passport to the world of authentic Italian cooking. Our website is dedicated to showcasing the best of Italian cuisine, from classic recipes to modern interpretations. Explore our comprehensive collection of Italian dishes, cooking tips, and cultural insights, and discover the rich and diverse flavors of Italy.</p>
