@@ -16,7 +16,7 @@ const ChefCard = ({chef}) => {
             <p>Total Recipes : {recipes.length}</p>
           </div>
           <div className="flex gap-2 text-lg items-center">
-           <button className="px-3 py-1 rounded-lg mt-5 bg-amber-300 font-bold text-slate-950">View Recipe</button>
+           <button className="px-3 py-1 rounded-lg mt-5 bg-amber-500 font-bold text-slate-950">View Recipe</button>
         </div>
       </div>
       </div>
