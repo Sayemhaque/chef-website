@@ -10,9 +10,9 @@ const Newsletter = () => {
     <div className="max-w-md">
     <h1 className="font-bold text-3xl font-mono">Get the leatest repice</h1>
     <div>
-        <input type="text" className="w-10/12 py-2 mt-5 px-2 rounded-md text-black focus:outline-0" placeholder="Enter you email" />
+        <input type="text" className="w-10/12 py-2 mt-5 px-2 rounded-md text-black focus:outline-0" placeholder="username@email.com" />
     </div>
-    <button className="bg-amber-500 px-6 py-2 rounded-lg text-black font-bold mt-5">subscribe</button>
+    <button className="bg-amber-500 px-6 py-2 rounded-lg text-black font-bold mt-5 uppercase">subscribe</button>
     </div>
     
   </div>

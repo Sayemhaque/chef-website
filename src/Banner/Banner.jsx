@@ -1,7 +1,7 @@
 
 const Banner = () => {
     return (
-        <div className="bg-gray-900 py-12 md:py-0" >
+        <div className="bg-gray-900 py-12 md:py-0 px-5 lg:px-0" >
             <div className="flex justify-between items-center flex-col md:flex-row gap-10 text-start  text-neutral-content min-h-screen md:max-w-[1200px] mx-auto lg:px-24">
                 <div className="max-w-md">
                     <h1 className="mb-5 text-3xl text-gray-200  md:text-4xl lg:text-4xl uppercase font-bold ">Embark on a Culinary Journey Through <span className="text-amber-400">Italy</span></h1>
