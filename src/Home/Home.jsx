@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import Chef from "../Chef/Chef";
 import FeatureRecipe from "../Feature/FeatureRecipe";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
            <Banner/>
            <FeatureRecipe/>
+           <Chef/>
         </div>
     );
 };

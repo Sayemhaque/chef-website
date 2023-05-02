@@ -11,11 +11,10 @@ const FeatureRecipe = () => {
       }
       fetchData()
     },[])
-    console.log(feature)
     return (
         <section className="py-12 bg-gray-200 px-5 lg:px-0">
             <h3 className="text-center font-bold text-4xl font-serif uppercase"><span className="text-amber-500">Feature</span> Recipes</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 place-items-center mt-8 md:max-w-[1200px] mx-auto ">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 place-items-center mt-8 md:max-w-[1200px] mx-auto">
           {feature.map(recipe => <FeatureCard key={recipe.id} recipe={recipe}/>)}  
         </div>
         </section>
