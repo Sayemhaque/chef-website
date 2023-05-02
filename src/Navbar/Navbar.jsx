@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Navbar = () => {
     return (
       <div className=" bg-slate-700 text-white shadow-lg ">
           <div className="navbar md:max-w-[1200px] mx-auto">
@@ -29,5 +29,5 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Navbar;
 
