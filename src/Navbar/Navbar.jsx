@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
-    return (
+  const {user} = useContext(AuthContext)
+      return (
       <div className=" bg-slate-700 text-white shadow-lg ">
           <div className="navbar md:max-w-[1200px] mx-auto lg:px-24">
         <div className="navbar-start py-3">
@@ -12,7 +15,8 @@ const Navbar = () => {
             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-700 rounded-box w-52 font-bold">
             <li><Link to="/">Home</Link></li>
           <li>  <Link to="/">Blog</Link></li>
-         <li>  <Link to="/">Login</Link></li>
+          {user ? <div><img src={user?.photoUrl} title={user?.displayName} className="w-10 h-10 rounded-full cursor-pointer" alt="" /></div> : <li>  <Link to="/">Login</Link></li>}
+         
             </ul>
           </div>
           <h1 className="btn btn-ghost normal-case text-xl md:text-3xl font-bold font-serif">Sapori Italiani</h1>
@@ -21,7 +25,7 @@ const Navbar = () => {
           <ul className="flex gap-6 items-center px-1 font-bold">
           <li><Link to="/">Home</Link></li>
           <li>  <Link to="/">Blog</Link></li>
-         <li>  <Link to="/login">Login</Link></li>
+          {user ? <div><img src={user?.photoURL} title={user?.displayName}  className="w-10 h-10 rounded-full cursor-pointer" alt="" /></div> : <li>  <Link to="/">Login</Link></li>}
           </ul>
         </div>
       </div>
