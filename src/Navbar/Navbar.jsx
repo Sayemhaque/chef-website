@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import ActiveRoute from "../ActiveRoute/ActiveRoute";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
@@ -31,7 +32,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end hidden lg:flex">
           <ul className="flex gap-6 items-center px-1 font-bold">
-            <li><Link to="/">Home</Link></li>
+            <li><ActiveRoute to={"/"}>Home</ActiveRoute></li>
             <li>  <Link to="/">Blog</Link></li>
             {user ? <div className="flex items-center gap-4"><img src={user?.photoURL} title={user?.displayName} className="w-10 h-10 rounded-full cursor-pointer" alt="" />
               <button className="bg-amber-300 px-3 py-2 rounded-md text-gray-950 uppercase" onClick={handleLogOut}>Log out</button>
