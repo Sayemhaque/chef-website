@@ -24,7 +24,7 @@ const ChefCard = ({ chef }) => {
         </div>
         <div className="flex gap-2 text-lg items-center">
           <button className="px-3 py-1 rounded-lg mt-5 bg-amber-500 font-bold text-slate-950">
-            <Link to={`chefdetails/${id}`}>View Recipe</Link>
+            <Link to={`chefrecipes/${id}`}>View Recipe</Link>
           </button>
         </div>
       </div>

@@ -40,7 +40,7 @@ const router = createBrowserRouter([
                 element:<Login/>
             },
             {
-                path:"/chefdetails/:id",
+                path:"/chefrecipes/:id",
                 element:<PrivateRoute><ChefDetails/></PrivateRoute>,
                 loader: ({params}) => fetch(`https://recipe-app-sayemhaque.vercel.app/chef/${params.id}`)
             }
