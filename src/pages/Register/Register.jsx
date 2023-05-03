@@ -69,7 +69,7 @@ const Register = () => {
         <div className="hero min-h-[60vh] ">
         <div className="w-full flex justify-center">
           <div className="card  w-full max-w-lg shadow-2xl bg-base-100">
-          <h1 className="text-center font-bold text-3xl py-5">Register</h1>
+          <h1 className="text-center font-bold text-3xl py-5">Registation</h1>
             <div  className="card-body  bg-gray-200">
             <form onSubmit={handleRegister}>
             <div className="form-control">

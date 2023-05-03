@@ -35,16 +35,19 @@ const Login = () => {
   }
   const handeResetPassword = () => {
     const email = emailRef.current.value;
-  
     sendPasswordResetEmail(auth, email)
-        .then(() => {
-          alert("Reset password send to your email")
-        })
-        .catch((err) => {
-          const error = err.message
-          if(error == "Firebase: Error (auth/missing-email).")
-           alert("Email is required")
-        });
+      .then(() => {
+        alert("Reset password send to your email")
+      })
+      .catch((err) => {
+        const error = err.message
+        if (error == "Firebase: Error (auth/missing-email).") {
+          setError("Email is required")
+        }
+        if (error == "Firebase: Error (auth/user-not-found).") {
+          setError("user not found")
+        }
+      });
 
   }
   const handleLogInWithGoogle = () => {
@@ -85,7 +88,7 @@ const Login = () => {
                 <input type="text" placeholder="password" required name="password" className="input input-bordered" />
                 <p className="py-2 text-red-600">{error}</p>
                 <label className="label">
-                  <a  className="label-text-alt link link-hover" onClick={handeResetPassword}>Forgot password?</a>
+                  <a className="label-text-alt link link-hover" onClick={handeResetPassword}>Forgot password?</a>
                 </label>
               </div>
               <p>Do not hava an account ? <Link to="/register" className="underline">Register</Link></p>
