@@ -40,7 +40,7 @@ const Navbar = () => {
             <li><ActiveRoute to={"/"}>Home</ActiveRoute></li>
             <li>  <ActiveRoute to="/blog">Blog</ActiveRoute></li>
             <li>  <ActiveRoute to="/about">About us</ActiveRoute></li>
-            {user ? <div className="flex items-center gap-4"><img src={user?.photoURL} title={user?.displayName} className="w-10 h-10 rounded-full cursor-pointer" alt="" />
+            {user ? <div className="flex items-center gap-4"><img src={user?.photoURL ? user.photoURL : user?.displayName} title={user?.displayName} className="w-10 h-10 rounded-full cursor-pointer" alt="" />
               <button className="bg-amber-300 px-3 py-1 rounded-md text-gray-950 uppercase" onClick={handleLogOut}>Log out</button>
             </div> : <li>  <ActiveRoute to="/login">Login</ActiveRoute></li>}
           </ul>

@@ -1,9 +1,9 @@
-import { Bars } from "react-loader-spinner";
+import { Circles } from "react-loader-spinner";
 
 const Loader = () => {
     return (
         <section className="flex justify-center ">
-            <Bars
+            <Circles
                 height="80"
                 width="80"
                 color="#000000"
