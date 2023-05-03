@@ -1,15 +1,18 @@
 import { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { getAuth, updateProfile } from "firebase/auth";
 import app from "../Firebase/Firebase.config";
 
 const auth = getAuth(app)
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const {createUser, logInWithGoogle,logInWithGitHub,setUser} = useContext(AuthContext)
     const [error,setError] = useState("")
     const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const handleRegister = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -36,7 +39,25 @@ const Register = () => {
         )
        
     }
-
+    
+    const handleLogInWithGoogle = () => {
+      logInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        setUser(user)
+        navigate(from)
+      })
+      .catch(error => setError(error.message))
+    }
+    const handleLogInWithGitHub = () => {
+      logInWithGitHub()
+      .then((result) => {
+        const user = result.user;
+        setUser(user)
+        navigate(from)
+      })
+      .catch(error => setError(error.message))
+    }
     const updateUserData = (name,photoUrl) => {
       updateProfile(auth.currentUser, {
         displayName: name, photoURL: photoUrl
@@ -85,8 +106,8 @@ const Register = () => {
              
             </form>
             <div className="mt-5 text-gray-200">
-                <button className="flex items-center bg-gray-900  w-full py-2 rounded-md justify-center"><span className="mr-2"><FaGoogle/></span> Login with Google</button>
-                <button className="flex items-center bg-gray-900 w-full py-2  mt-3 rounded-md justify-center"><span className="mr-2"><FaGithub/></span> Login with GitHub</button>
+                <button className="flex items-center bg-gray-900  w-full py-2 rounded-md justify-center" onClick={handleLogInWithGoogle}><span className="mr-2"><FaGoogle/></span> Login with Google</button>
+                <button className="flex items-center bg-gray-900 w-full py-2  mt-3 rounded-md justify-center" onClick={handleLogInWithGitHub}><span className="mr-2"><FaGithub/></span> Login with GitHub</button>
               </div>
             </div>
           </div>

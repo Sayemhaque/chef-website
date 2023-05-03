@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
-  const {logIn} = useContext(AuthContext)
+  const {logIn,logInWithGoogle,  logInWithGitHub,setUser} = useContext(AuthContext)
   const [error,setError] = useState("")
   const navigate = useNavigate()
   const location = useLocation();
@@ -28,6 +28,24 @@ const Login = () => {
         } 
         )
        
+    }
+    const handleLogInWithGoogle = () => {
+      logInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        setUser(user)
+        navigate(from)
+      })
+      .catch(error => setError(error.message))
+    }
+    const handleLogInWithGitHub = () => {
+      logInWithGitHub()
+      .then((result) => {
+        const user = result.user;
+        setUser(user)
+        navigate(from)
+      })
+      .catch(error => setError(error.message))
     }
     return (
         <div className="hero min-h-[60vh] ">
@@ -58,8 +76,8 @@ const Login = () => {
               </div>
              </form>
              <div className="mt-5 text-gray-200">
-                <button className="flex items-center bg-gray-900  w-full py-2 rounded-md justify-center"><span className="mr-2"><FaGoogle/></span> Login with Google</button>
-                <button className="flex items-center bg-gray-900 w-full py-2  mt-3 rounded-md justify-center"><span className="mr-2"><FaGithub/></span> Login with GitHub</button>
+                <button className="flex items-center bg-gray-900  w-full py-2 rounded-md justify-center" onClick={handleLogInWithGoogle}><span className="mr-2"><FaGoogle/></span> Login with Google</button>
+                <button className="flex items-center bg-gray-900 w-full py-2  mt-3 rounded-md justify-center" onClick={handleLogInWithGitHub}><span className="mr-2"><FaGithub/></span> Login with GitHub</button>
               </div>
             </div>
           </div>
