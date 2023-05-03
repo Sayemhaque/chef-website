@@ -24,11 +24,16 @@ const Register = () => {
           navigate("/")
         })
         .catch(error => {
-          if(error.message == "Firebase: Password should be at least 6 characters (auth/weak-password).")
-          {
+          if(error.message == "Firebase: Password should be at least 6 characters (auth/weak-password)."){
             setError("password must be 5 characters long")
           }
-        } )
+          if(error.message == "Firebase: Error (auth/email-already-in-use)."){
+            setError("Email alredy in use")
+          }
+          console.log(error)
+        } 
+        
+        )
        
     }
 

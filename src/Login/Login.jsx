@@ -1,19 +1,22 @@
 import { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
   const {logIn} = useContext(AuthContext)
   const [error,setError] = useState("")
   const navigate = useNavigate()
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
     const handleLogIn = (e) => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         logIn(email,password)
-        .then(() => console.log("logOut successfully"))
+        .then(() =>  navigate(from))
         .catch((error) => {
           if(error.message === "Firebase: Error (auth/user-not-found)."){
             setError("user not found")
@@ -24,11 +27,10 @@ const Login = () => {
           console.log(error.message)
         } 
         )
-        navigate("/")
+       
     }
     return (
         <div className="hero min-h-[60vh] ">
-        
         <div className="w-full flex justify-center">
           <div className="card  w-full max-w-lg shadow-2xl bg-base-100">
           <h1 className="text-center font-bold text-3xl py-3">Log In</h1>

@@ -34,7 +34,7 @@ const Navbar = () => {
             <li><Link to="/">Home</Link></li>
             <li>  <Link to="/">Blog</Link></li>
             {user ? <div className="flex items-center gap-4"><img src={user?.photoURL} title={user?.displayName} className="w-10 h-10 rounded-full cursor-pointer" alt="" />
-              <button className="btn btn-warning" onClick={handleLogOut}>Log out</button>
+              <button className="bg-amber-300 px-3 py-2 rounded-md text-gray-950 uppercase" onClick={handleLogOut}>Log out</button>
             </div> : <li>  <Link to="/login">Login</Link></li>}
           </ul>
         </div>

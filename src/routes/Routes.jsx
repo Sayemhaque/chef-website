@@ -4,6 +4,7 @@ import Home from "../Home/Home";
 import ChefDetails from "../Chef/ChefDetails";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path:"/chefdetails/:id",
-                element:<ChefDetails/>,
+                element:<PrivateRoute><ChefDetails/></PrivateRoute>,
                 loader: ({params}) => fetch(`https://recipe-app-sayemhaque.vercel.app/chef/${params.id}`)
             }
         ]
