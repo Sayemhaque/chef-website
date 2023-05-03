@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
+import { AuthContext } from "../../Provider/AuthProvider";
 import { getAuth, updateProfile } from "firebase/auth";
-import app from "../Firebase/Firebase.config";
+import app from "../../Firebase/Firebase.config";
 
 const auth = getAuth(app)
 const Register = () => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ChefCard from "./ChefCard";
-import Loader from "../Loader/Loader";
+import Loader from "../../Loader/Loader";
 
 const Chef = () => {
     const [chef, setChef] = useState([])

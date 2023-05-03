@@ -1,11 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Home from "../Home/Home";
-import ChefDetails from "../Chef/ChefDetails";
-import Login from "../Login/Login";
-import Register from "../Register/Register";
+
+
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import PageNotFound from "../404Page/PageNotFound";
+import Home from "../pages/Home/Home";
+import Register from "../pages/Register/Register";
+import Login from "../pages/Login/Login";
+import ChefDetails from "../pages/Chef/ChefDetails";
 
 
 

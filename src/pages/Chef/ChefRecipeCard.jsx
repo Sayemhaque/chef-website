@@ -5,7 +5,7 @@ import { FaRegHeart, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import Toast from "../Toast/Toast";
+import Toast from "../../Toast/Toast";
 import { useState } from "react";
 
 const ChefRecipeCard = ({ recipe }) => {
