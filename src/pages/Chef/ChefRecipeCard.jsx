@@ -4,8 +4,7 @@
 import { FaRegHeart, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-import Toast from "../../components/Toast/Toast";
+
 import { useState } from "react";
 
 const ChefRecipeCard = ({ recipe }) => {
@@ -45,7 +44,7 @@ const ChefRecipeCard = ({ recipe }) => {
                     <p className="font-bold text-xl mt-3 ">Cooking Method :</p>
                     
                         <small className="mt-5 w-fit font-semibold text-stone-800">
-                            {cookingMethod.slice(0 ,140)}...</small>
+                            {cookingMethod}</small>
 
                 </div>
                 <div className="inline-flex items-center gap-2">
@@ -59,7 +58,6 @@ const ChefRecipeCard = ({ recipe }) => {
                         />
                     </div>
               <button  onClick={handleFavourite} disabled={favouite} className={` disabled:bg-opacity-60 mr-2 flex items-center gap-2 px-6 rounded-md py-1 bg-warning cursor-pointer text-sm absolute bottom-2`} title="favouite"> <span><FaRegHeart/></span> Favorite</button>    
-                 <Toast/>
             </div>
         </div>
     );

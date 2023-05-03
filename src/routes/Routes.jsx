@@ -9,6 +9,7 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import ChefDetails from "../pages/Chef/ChefDetails";
 import Blog from "../pages/Blog/Blog";
+import About from "../pages/About/About";
 
 
 
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
                 element : <Blog/>
             },
             {
+                path:'about',
+                element : <About/>
+            },
+            {
                 path:"register",
                 element:<Register/>
             },
@@ -40,11 +45,6 @@ const router = createBrowserRouter([
                 loader: ({params}) => fetch(`https://recipe-app-sayemhaque.vercel.app/chef/${params.id}`)
             }
         ]
-    }
-    ,
-    {
-        path:"*",
-        element:<PageNotFound/>
     }
 ])
 

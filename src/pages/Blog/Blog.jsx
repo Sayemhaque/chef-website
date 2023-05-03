@@ -1,8 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import { useRef } from "react";
+import { FaFileDownload } from "react-icons/fa";
+import Pdf from "react-to-pdf";
+
 const Blog = () => {
+    const ref = useRef()
     return (
-        <div className="flex flex-col gap-10 px-5 md:px-12 md:max-w-[800px] mx-auto py-12">
+        <div ref={ref} className="flex flex-col gap-10 px-5 md:px-12 md:max-w-[800px] mx-auto py-12">
+            <Pdf targetRef={ref} filename="code-example.pdf">
+                {({ toPdf }) => <button onClick={toPdf} className="px-3 py-3  bg-amber-300 text-gray-800 font-bold flex items-center justify-center">
+                    <span className="mr-2"><FaFileDownload /></span>
+                    Download pdf</button>}
+            </Pdf>
+
             <div>
                 <h3 className="text-2xl md:text-3xl font-bold">1.Differences between uncontrolled and controlled components</h3>
                 <p className="font-bold mt-3">In controlled component the form input element’s values and mutations are controlled by event handlers and the value of the input element is always changes by the state.</p>

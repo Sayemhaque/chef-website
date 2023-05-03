@@ -21,6 +21,7 @@ const Navbar = () => {
             <ul tabIndex={0} className="flex gap-6 flex-col items-start dropdown-content mt-3 p-2 shadow bg-slate-700 rounded-box w-52 font-bold">
               <li><Link to="/">Home</Link></li>
               <li>  <ActiveRoute to="/blog">Blog</ActiveRoute></li>
+              <li>  <ActiveRoute to="/about">About us</ActiveRoute></li>
               {user ? <div><img src={user?.photoURL} title={user?.displayName} className="w-10 h-10 rounded-full mb-3  cursor-pointer" alt="" />
                 <button className="btn btn-warning" onClick={handleLogOut}>Log out</button>
               </div>
@@ -34,6 +35,7 @@ const Navbar = () => {
           <ul className="flex gap-6 items-center px-1 font-bold">
             <li><ActiveRoute to={"/"}>Home</ActiveRoute></li>
             <li>  <ActiveRoute to="/blog">Blog</ActiveRoute></li>
+            <li>  <ActiveRoute to="/about">About us</ActiveRoute></li>
             {user ? <div className="flex items-center gap-4"><img src={user?.photoURL} title={user?.displayName} className="w-10 h-10 rounded-full cursor-pointer" alt="" />
               <button className="bg-amber-300 px-3 py-2 rounded-md text-gray-950 uppercase" onClick={handleLogOut}>Log out</button>
             </div> : <li>  <ActiveRoute to="/login">Login</ActiveRoute></li>}
