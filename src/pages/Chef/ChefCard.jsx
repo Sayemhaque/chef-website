@@ -2,7 +2,7 @@
 
 import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
-
+import { FaBriefcase, FaHeart,} from "react-icons/fa";
 
 // eslint-disable-next-line react/prop-types
 const ChefCard = ({ chef }) => {
@@ -17,9 +17,9 @@ const ChefCard = ({ chef }) => {
       </figure>
       <div className="card-body ">
         <h2 className="card-title text-2xl font-serif">{chefName}</h2>
-        <p className="font-bold">Experience : {experience}</p>
+        <p className="font-bold flex gap-2 items-center"><FaBriefcase/>Experience : {experience}</p>
         <div className="flex flex-col gap-3 justify-between font-serif font-bold text-slate-950">
-          <p >Likes : {likes}</p>
+          <p className="font-bold flex gap-2 items-center"><FaHeart/>{likes}</p>
           <p>Total Recipes : {recipes.length}</p>
         </div>
         <div className="flex gap-2 text-lg items-center">

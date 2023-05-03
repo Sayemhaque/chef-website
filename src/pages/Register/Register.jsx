@@ -106,6 +106,7 @@ const Register = () => {
                 <button type="submit" className="w-full py-2 bg-amber-400 rounded-md">Register</button>
               </div>
             </form>
+            <p className="text-center font-semibold text-md">or login with</p>
             <div className="mt-5 text-gray-200">
                 <button className="flex items-center bg-gray-900  w-full py-2 rounded-md justify-center" onClick={handleLogInWithGoogle}><span className="mr-2"><FaGoogle/></span> Login with Google</button>
                 <button className="flex items-center bg-gray-900 w-full py-2  mt-3 rounded-md justify-center" onClick={handleLogInWithGitHub}><span className="mr-2"><FaGithub/></span> Login with GitHub</button>

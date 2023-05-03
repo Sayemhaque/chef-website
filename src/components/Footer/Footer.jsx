@@ -1,7 +1,8 @@
 import { FaFacebook, FaInstagram, FaTwitter} from "react-icons/fa";
 const Footer = () => {
     return (
-        <footer className="footer p-10 py-24 bg-gray-900 text-gray-200 mt-24">
+       <section className="bg-gray-900">
+         <footer className="footer p-10 py-24  text-gray-200 mt-24">
         <div>
           <span className="footer-title">Services</span> 
           <a className="link link-hover">Cooking</a> 
@@ -29,7 +30,10 @@ const Footer = () => {
           <a className="link link-hover"><FaTwitter/></a>
           </div>
         </div>
+       
       </footer>
+      <p className="text-center text-gray-300 py-2">&copy; 2023 Sapori Italiani. All rights reserved.</p>
+       </section>
     );
 };
 
