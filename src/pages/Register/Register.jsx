@@ -2,10 +2,7 @@ import { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-import {  getAuth, updateProfile } from "firebase/auth";
-import app from "../../Firebase/Firebase.config";
-
-const auth = getAuth(app)
+import {  updateProfile } from "firebase/auth";
 const Register = () => {
     const {createUser, logInWithGoogle,logInWithGitHub,setUser} = useContext(AuthContext)
     const [error,setError] = useState("")
@@ -22,8 +19,7 @@ const Register = () => {
         const password = form.password.value;
         createUser(email,password)
         .then((result) => {
-          console.log(result.user)
-          updateUserData(name,photoUrl)
+          updateUserData(result.user,name,photoUrl)
           navigate("/")
           window.location.reload() 
         })
@@ -59,8 +55,8 @@ const Register = () => {
       })
       .catch(error => setError(error.message))
     }
-    const updateUserData = (name,photoUrl) => {
-      updateProfile(auth.currentUser, {
+    const updateUserData = (user,name,photoUrl) => {
+      updateProfile(user, {
         displayName: name, photoURL: photoUrl
       }).then(() => {  
         console.log("updated user successfully")
