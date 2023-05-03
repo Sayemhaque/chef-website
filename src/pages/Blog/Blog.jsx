@@ -13,7 +13,6 @@ const Blog = () => {
                     <span className="mr-2"><FaFileDownload /></span>
                     Download pdf</button>}
             </Pdf>
-
             <div>
                 <h3 className="text-2xl md:text-3xl font-bold">1.Differences between uncontrolled and controlled components</h3>
                 <p className="font-bold mt-3">In controlled component the form input element’s values and mutations are controlled by event handlers and the value of the input element is always changes by the state.</p>
