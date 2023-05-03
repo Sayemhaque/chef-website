@@ -1,14 +1,30 @@
+import { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
-
+  const {logIn} = useContext(AuthContext)
+  const [error,setError] = useState("")
+  const navigate = useNavigate()
     const handleLogIn = (e) => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password,)
+        logIn(email,password)
+        .then(() => console.log("logOut successfully"))
+        .catch((error) => {
+          if(error.message === "Firebase: Error (auth/user-not-found)."){
+            setError("user not found")
+          }
+          if(error.message == "Firebase: Error (auth/wrong-password)."){
+            setError("your password is incorrect")
+          }
+          console.log(error.message)
+        } 
+        )
+        navigate("/")
     }
     return (
         <div className="hero min-h-[60vh] ">
@@ -22,13 +38,14 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="text" placeholder="email" name="email" className="input input-bordered" />
+                <input type="text" placeholder="email" required name="email" className="input input-bordered" />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="text" placeholder="password" name="password" className="input input-bordered" />
+                <input type="text" placeholder="password" required name="password" className="input input-bordered" />
+                <p className="py-2 text-red-600">{error}</p>
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                 </label>

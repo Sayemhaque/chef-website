@@ -1,6 +1,6 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { getAuth, updateProfile } from "firebase/auth";
 import app from "../Firebase/Firebase.config";
@@ -8,6 +8,8 @@ import app from "../Firebase/Firebase.config";
 const auth = getAuth(app)
 const Register = () => {
     const {createUser} = useContext(AuthContext)
+    const [error,setError] = useState("")
+    const navigate = useNavigate()
     const handleRegister = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -19,8 +21,14 @@ const Register = () => {
         .then((result) => {
           console.log(result.user)
           updateUserData(name,photoUrl)
+          navigate("/")
         })
-        .catch(error => console.log(error.message))
+        .catch(error => {
+          if(error.message == "Firebase: Password should be at least 6 characters (auth/weak-password).")
+          {
+            setError("password must be 5 characters long")
+          }
+        } )
        
     }
 
@@ -64,6 +72,7 @@ const Register = () => {
                 </label>
                 <input type="text" placeholder="password" required name="password" className="input input-bordered" />
               </div>
+              <p className="py-1 text-red-600">{error}</p>
               <p className="mt-2">Already have an account ? <Link to="/login" className="underline">Log in</Link></p>
               <div className="form-control mt-6">
                 <button type="submit" className="w-full py-2 bg-amber-400 rounded-md">Login</button>
