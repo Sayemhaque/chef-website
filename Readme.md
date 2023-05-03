@@ -10,4 +10,5 @@
     the chef details page.
     5. if user does not logged in he/she will redirect to the login page.
     6. This website has backend.We are getting data from backend dummy json data.
+    7. Used react-lazy-load for optimize images performance.
     

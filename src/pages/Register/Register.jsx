@@ -2,10 +2,8 @@ import { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { getAuth, updateProfile } from "firebase/auth";
-import app from "../../Firebase/Firebase.config";
+import {  updateProfile } from "firebase/auth";
 
-const auth = getAuth(app)
 const Register = () => {
     const {createUser, logInWithGoogle,logInWithGitHub,setUser} = useContext(AuthContext)
     const [error,setError] = useState("")
@@ -22,9 +20,10 @@ const Register = () => {
         const password = form.password.value;
         createUser(email,password)
         .then((result) => {
-          console.log(result.user)
-          updateUserData(name,photoUrl)
+          const user = result.user;
+          updateUserData(user,name,photoUrl)
           navigate("/")
+          window.location.reload() 
         })
         .catch(error => {
           if(error.message == "Firebase: Password should be at least 6 characters (auth/weak-password)."){
@@ -58,15 +57,17 @@ const Register = () => {
       })
       .catch(error => setError(error.message))
     }
-    const updateUserData = (name,photoUrl) => {
-      updateProfile(auth.currentUser, {
+    const updateUserData = (user,name,photoUrl) => {
+      updateProfile(user, {
         displayName: name, photoURL: photoUrl
-      }).then(() => {
+      }).then(() => {  
+       
         console.log("updated user successfully")
       }).catch((error) => {
         console.log(error.message)
       });
     }
+
     return (
         <div className="hero min-h-[60vh] ">
         <div className="w-full flex justify-center">
@@ -101,9 +102,8 @@ const Register = () => {
               <p className="py-1 text-red-600">{error}</p>
               <p className="mt-2">Already have an account ? <Link to="/login" className="underline">Log in</Link></p>
               <div className="form-control mt-6">
-                <button type="submit" className="w-full py-2 bg-amber-400 rounded-md">Login</button>
+                <button type="submit" className="w-full py-2 bg-amber-400 rounded-md">Register</button>
               </div>
-             
             </form>
             <div className="mt-5 text-gray-200">
                 <button className="flex items-center bg-gray-900  w-full py-2 rounded-md justify-center" onClick={handleLogInWithGoogle}><span className="mr-2"><FaGoogle/></span> Login with Google</button>
