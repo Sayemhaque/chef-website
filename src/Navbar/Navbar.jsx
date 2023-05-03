@@ -10,8 +10,8 @@ const Navbar = () => {
     .catch(error => console.log(error))
   }
   return (
-    <div className=" bg-slate-700 text-white shadow-lg ">
-      <div className="navbar md:max-w-[1200px] mx-auto lg:px-24">
+    <div className=" bg-slate-700 sticky top-0 z-50 text-white shadow-lg ">
+      <div className="navbar   md:max-w-[1200px] mx-auto lg:px-24">
         <div className="navbar-start py-3">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
