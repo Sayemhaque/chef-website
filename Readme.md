@@ -1,7 +1,7 @@
 # Live Link : <https://repice-app-6cac9.web.app/>
 
 
-1. Features : 
+## Features : 
     - This is a single page application.
     - It has dynamic routing.
     - It has firebase authentication.
