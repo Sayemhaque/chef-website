@@ -1,6 +1,6 @@
-import Banner from "../../Banner/Banner";
+import Banner from "../../components/Banner/Banner";
 import Chef from "../Chef/Chef";
-import FeatureRecipe from "../../Feature/FeatureRecipe";
+import FeatureRecipe from "../../components/Feature/FeatureRecipe";
 import Newsletter from "../../Newsletter/Newsletter";
 
 const Home = () => {
