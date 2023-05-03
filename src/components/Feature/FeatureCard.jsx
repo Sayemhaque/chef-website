@@ -1,12 +1,17 @@
 import Rating from "react-rating";
 import { FaRegStar, FaStar} from "react-icons/fa";
+import LazyLoad from "react-lazyload";
 // eslint-disable-next-line react/prop-types
 const FeatureCard = ({ recipe }) => {
   // eslint-disable-next-line react/prop-types
   const { name, recipePhoto, description, likes, ratings } = recipe;
   return (
     <div className="card card-compact w-full h-full bg-base-100 shadow-xl">
-      <figure><img src={recipePhoto} loading="lazy" className="h-[300px] w-full object-cover" alt="Shoes" /></figure>
+      <figure>
+        <LazyLoad className="w-full" once>
+        <img src={recipePhoto} loading="lazy" className="h-[300px] w-full object-cover" alt="Shoes" />
+        </LazyLoad>
+      </figure>
       <div className="card-body">
         <h2 className="card-title text-2xl font-serif">{name}</h2>
         <p>{description}</p>
