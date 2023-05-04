@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import {  updateProfile } from "firebase/auth";
 const Register = () => {
-    const {createUser, logInWithGoogle,logInWithGitHub,setUser} = useContext(AuthContext)
+    const { logOut,createUser, logInWithGoogle,logInWithGitHub,setUser} = useContext(AuthContext)
     const [error,setError] = useState("")
     const navigate = useNavigate()
     const location = useLocation();
@@ -20,8 +20,9 @@ const Register = () => {
         createUser(email,password)
         .then((result) => {
           updateUserData(result.user,name,photoUrl)
-          navigate("/")
-          window.location.reload() 
+          logOutUser()
+          navigate("/login")
+          
         })
         .catch(error => {
           if(error.message == "Firebase: Password should be at least 6 characters (auth/weak-password)."){
@@ -64,6 +65,14 @@ const Register = () => {
         console.log(error.message)
       });
     }
+
+    const logOutUser = () => {
+      logOut()
+    .then(() => {
+    navigate("/login")
+    })
+    .catch(error => console.log(error))
+    } 
 
     return (
         <div className="hero min-h-[60vh] ">

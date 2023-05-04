@@ -8,7 +8,7 @@ const Newsletter = () => {
         <div className="hero-content text-center text-neutral-content">
 
           <div className="max-w-md">
-            <h1 className="font-bold text-3xl font-mono">Get the leatest repice</h1>
+            <h1 className="font-bold text-3xl font-mono">Get the latest repice</h1>
             <div>
               <input type="text" className="w-10/12 py-2 mt-5 px-2 rounded-md text-black focus:outline-0" placeholder="username@email.com" />
             </div>
