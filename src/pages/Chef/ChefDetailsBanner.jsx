@@ -16,9 +16,9 @@ const ChefDetailsBanner = ({data}) => {
                 <div className="w-full md:max-w-md mt-4">
                     <h1 className="text-2xl lg:text-5xl text-gray-200 font-bold">{chefName}</h1>
                     <p className="py-6 text-gray-300 font-semibold">{bio}</p>
-                    <p className="py-1 text-gray-300 font-semibold">Likes : {likes}</p>
-                    <p className="py-1 text-gray-300 font-semibold">Total Recipes: {recipes.length}</p>
-                    <p className="py-1 text-gray-300 font-semibold mb-3">Experience: {experience}</p>
+                    <p className="py-1 text-gray-300 font-semibold">Likes : <span className="text-amber-300">{likes}</span></p>
+                    <p className="py-1 text-gray-300 font-semibold">Total Recipes: <span className="text-amber-300">{recipes.length}</span></p>
+                    <p className="py-1 text-gray-300 font-semibold mb-3">Experience: <span className="text-amber-300">{experience}</span></p>
                 </div>
             </div>
         </div>

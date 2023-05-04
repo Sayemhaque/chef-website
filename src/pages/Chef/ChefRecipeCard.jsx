@@ -12,6 +12,7 @@ const ChefRecipeCard = ({ recipe }) => {
     const { title, ingredients, cookingMethod, rating } = recipe;
     
     const handleFavourite = () => {
+        setFavourite(true)
         toast.success('Added to favorite', {
             position: "top-center",
             autoClose: 5000,
@@ -22,30 +23,27 @@ const ChefRecipeCard = ({ recipe }) => {
             progress: undefined,
             theme: "colored",
             });
-            setFavourite(true)
+          
     }
    
     return (
         <div className="card relative w-full h-full bg-base-100 border border-gray-400">
             <div className="card-body">
-                <h2 className="text-3xl">{title}</h2>
-                   
+                <h2 className="text-3xl">{title}</h2>  
                 <div>
                     <p className="font-bold text-md">Ingrdiens :</p>
                 </div>
                 {ingredients.map((ingredient) => {
                     return (
-                        <div key={ingredient.id}>
+                        <div key={Math.random()}>
                             <li className="text-stone-800 font-semibold">{ingredient}</li>
                         </div>
                     )
                 })}
                 <div>
                     <p className="font-bold text-xl mt-3 ">Cooking Method :</p>
-                    
                         <small className="mt-5 w-fit font-semibold text-stone-800">
                             {cookingMethod}</small>
-
                 </div>
                 <div className="inline-flex items-center gap-2">
                        <div> <p className="py-1  text-stone-800 font-semibold">{rating}</p></div>
