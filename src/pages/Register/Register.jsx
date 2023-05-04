@@ -94,7 +94,7 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="text" placeholder="password" required name="password" className="input input-bordered" />
+                <input type="password" placeholder="password" required name="password" className="input input-bordered" />
               </div>
               <p className="py-1 text-red-600">{error}</p>
               <p className="mt-2">Already have an account ? <Link to="/login" className="underline">Log in</Link></p>

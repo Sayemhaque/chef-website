@@ -85,7 +85,7 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="text" placeholder="password" required name="password" className="input input-bordered" />
+                <input type="password" placeholder="password" required name="password" className="input input-bordered" />
                 <p className="py-2 text-red-600">{error}</p>
                 <label className="label">
                   <a className="label-text-alt link link-hover" onClick={handeResetPassword}>Forgot password?</a>
